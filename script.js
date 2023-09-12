@@ -73,7 +73,7 @@ const changePlayer = () => {
 };
 
 const insertSign = (e, activePlayer) => {
-  e.target.innerHTML = players[activePlayer]["sign"];
+  if (!e.target.innerHTML) e.target.innerHTML = players[activePlayer]["sign"];
 
   let array = [...e.target.classList];
   let index = e.target.classList[2];
