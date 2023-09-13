@@ -1,7 +1,8 @@
 const container = document.querySelector(".container");
-const box = document.querySelector(".box");
+const box = document.querySelectorAll(".box");
 const winnerEle = document.querySelector(".msg");
 const btnReset = document.querySelector(".btn-reset");
+console.log(box);
 
 let tictactoeArr = [
   ["", "", ""],
@@ -74,6 +75,8 @@ const changePlayer = () => {
 
 const insertSign = (e, activePlayer) => {
   e.target.innerHTML = players[activePlayer]["sign"];
+  e.target.removeEventListener("click", ticTacToe);
+  e.target.classList.remove("hover");
 
   let array = [...e.target.classList];
   let index = e.target.classList[2];
@@ -95,10 +98,10 @@ const ticTacToe = (e) => {
 
   if (winner) {
     winnerEle.innerHTML = `${players[activePlayer]["sign"]} Won The Game 👏🎉`;
-    container.removeEventListener("click", ticTacToe);
+    box.forEach((e) => e.removeEventListener("click", ticTacToe));
   }
 };
-container.addEventListener("click", ticTacToe);
+box.forEach((e) => e.addEventListener("click", ticTacToe));
 btnReset.addEventListener("click", function (e) {
   location.reload();
 });

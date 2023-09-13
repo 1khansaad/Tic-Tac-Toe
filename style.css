@@ -10,6 +10,7 @@
   max-width: 300px;
   display: flex;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 .box {
   width: 100px;
@@ -17,7 +18,7 @@
   border: 1px solid #3498db;
   transition: background-color 0.3s ease;
 }
-.box:hover {
+.hover:hover {
   background-color: #a2dbef;
 }
 .one-0 {
